@@ -1,0 +1,111 @@
+﻿@model Inventapp.Models.entradaEnt
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Entrada de producto</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+            table th {
+                background-color: #B8DBFD;
+                color: #333;
+                font-weight: bold;
+            }
+
+            table th, table td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            table, table table td {
+                border: 0px solid #ccc;
+            }
+
+        input[type=text], select {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Load", "Entrada", FormMethod.Post))
+    {
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2" align="center">Entrada de producto</th>
+            </tr>
+
+            <tr>
+                <td>Producto: </td>
+                <td>
+                    @Html.DropDownListFor(m => m.productoN, new SelectList(ViewBag.Items))
+                </td>
+            </tr>
+            <tr>
+                <td>Cantidad: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.cantidad)
+                </td>
+            </tr>
+            <tr>
+                <td>Lote: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.lote)
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de Fabricacion: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.ffabricacion)
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de Vencimiento: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.fvencimiento)
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de Ingreso: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.fingreso)
+                </td>
+            </tr>
+            <tr>
+                <td>Proveedor: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.proveedor)
+                </td>
+            </tr>
+            
+        </table>
+        <input type="submit" value="Ingresar" />
+    }
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
