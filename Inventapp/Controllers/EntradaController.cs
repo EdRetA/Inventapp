@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Inventapp.Models;
 
@@ -8,8 +9,28 @@ namespace Inventapp.Controllers
 {
     public class EntradaController : Controller
     {
-        // GET: entrada
-        
+        // GET: Prueba
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Agregar()
+        {
+            return View();
+        }
+
+        public ActionResult Comprobar()
+        {
+            CargaFaltantes();
+            return View();
+        }
+
+        //public ActionResult Create()
+        //{
+        //    PopulateDropDownList();
+        //    return View();
+        //}
+
         public ActionResult Load()
         {
             PopulateDropDownList();
@@ -17,14 +38,39 @@ namespace Inventapp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Load(entradaEnt entradaD)
+        public ActionResult Agregar(entradaEnt entradaD)
         
         {
-            entradaDAL entdb = new entradaDAL();
-            string resp = entdb.AgregarEntrada(entradaD);
+            
+            if (ModelState.IsValid)
+            {
 
-            ViewBag.Mensaje = resp;
-            return View("Load");
+                DateTime vencimiento = Convert.ToDateTime(entradaD.fvencimiento);
+                if (vencimiento>DateTime.Today)
+                {               
+                    entradaDAL entdb = new entradaDAL();
+                    string resp = entdb.AgregarEntrada(entradaD);
+
+                    //ViewBag.Mensaje = resp;
+                    ViewBag.Estado = 1;
+                    //PopulateDropDownList();
+                    return View("Index");
+                }
+                else
+                {
+                    PopulateDropDownList();
+                    ViewBag.Estado = 2;
+                    return View("Load");
+                }
+                
+                
+            }
+            else
+            {
+                PopulateDropDownList();
+                ViewBag.Estado = 0;
+                return View("Load");
+            }
         }
 
         private void PopulateDropDownList()
@@ -33,6 +79,18 @@ namespace Inventapp.Controllers
             List<string> items = entdb.BuscarProductos();
             ViewBag.Items = items;
         }
+
+        private void CargaFaltantes()
+        {
+            entradaDAL entdb = new entradaDAL();
+            List<string> items = entdb.CargarFaltante();
+            ViewBag.Items = items;
+        }
+
+
+
+
+
 
         //public ActionResult Buscar()
         //{

@@ -70,6 +70,36 @@ namespace Inventapp.Models
                 return new List<string>(new string[] { "Error"});
             }
         }
+        public List<string> CargarFaltante()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("Select Producto from vFaltantes", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                con.Close();
+
+                List<string> Lista = new List<string>();
+                foreach (DataRow row in dt.Rows)
+                {
+                    Lista.Add(row["Producto"].ToString());
+                }
+
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                return new List<string>(new string[] { "Error" });
+            }
+        }
     }
 
 }

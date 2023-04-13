@@ -4,19 +4,35 @@
 
 <div class="jumbotron">
     <h1>InventAPP</h1>
-    <p class="lead">Una aplicación para el control de inventarios.</p>
-    
-    @using (Html.BeginForm("Load", "Entrada"))
+
+
+    @using (Html.BeginForm("Load", "Entrada", FormMethod.Post))
     {
+        if (ViewBag.Estado != null && ViewBag.Estado==1)
+        {
+            <script type="text/javascript">
 
-        <input type="submit" value="Iniciar"/>
+                window.onload = function () {
+                    alert("Producto ingresado correctamente");
+                };
+            </script>
 
-    }
-</div>
+        }
+        <p class="lead">Una aplicación para el control de inventarios.</p>
 
-<div class="row">
-    
-
+        <input type="submit" value="Agregar producto nuevo" onclick="location.href='@Url.Action("Load", "Entrada")'"/>
+        <input type="button" value="Verificar productos" onclick="location.href='@Url.Action("Comprobar", "Entrada")'" />
         
 
+
+
+}
 </div>
+
+
+
+
+
+
+
+
