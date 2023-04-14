@@ -83,8 +83,14 @@ namespace Inventapp.Controllers
         private void CargaFaltantes()
         {
             entradaDAL entdb = new entradaDAL();
-            List<string> items = entdb.CargarFaltante();
-            ViewBag.Items = items;
+            List<Inventario> items = entdb.CargarFaltante();
+          
+
+
+           
+          
+           ViewBag.inventario = items;
+                        
         }
 
 

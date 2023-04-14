@@ -65,70 +65,70 @@
                 };
             </script>
 
-        }
+            }
 
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th colspan="2" align="center">Entrada de producto</th>
-            </tr>
+<table class="table">
+    <tr>
+        <th colspan="2" align="center">Entrada de producto</th>
+    </tr>
 
-            <tr>
-                <td>Producto: </td>
-                <td>
-                    @Html.DropDownListFor(m => m.productoN, new SelectList(ViewBag.Items))
+    <tr>
+        <td>Producto: </td>
+        <td>
+            @Html.DropDownListFor(m => m.productoN, new SelectList(ViewBag.Items))
 
-                </td>
-            </tr>
-            <tr>
-                <td>Cantidad: </td>
-                <td>
-                    @Html.TextBoxFor(m => m.cantidad)
-                    @Html.ValidationMessageFor(m => m.cantidad, "", new { @class = "text-danger" })
-                </td>
-            </tr>
-            <tr>
-                <td>Lote: </td>
-                <td>
-                    
-                    @Html.TextBoxFor(m => m.lote)
-                    @Html.ValidationMessageFor(m => m.lote, "", new { @class = "text-danger" })
-                </td>
-            </tr>
-            <tr>
-                <td>Fecha de Fabricacion: </td>
-                <td>
+        </td>
+    </tr>
+    <tr>
+        <td>Cantidad: </td>
+        <td>
+            @Html.TextBoxFor(m => m.cantidad)
+            @Html.ValidationMessageFor(m => m.cantidad, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Lote: </td>
+        <td>
 
-                    @Html.TextBoxFor(m => m.ffabricacion)
-                    @Html.Label("Formato: AAAA-MM-DD")
-                    @Html.ValidationMessageFor(m => m.ffabricacion, "", new { @class = "text-danger" })
-                </td>
-            </tr>
-            <tr>
-                <td>Fecha de Vencimiento: </td>
-                <td>
+            @Html.TextBoxFor(m => m.lote)
+            @Html.ValidationMessageFor(m => m.lote, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de Fabricacion: </td>
+        <td>
 
-                    @Html.TextBoxFor(m => m.fvencimiento)
-                    @Html.Label("Formato: AAAA-MM-DD")
-                    @Html.ValidationMessageFor(m => m.fvencimiento, "", new { @class = "text-danger" })
-                </td>
-            </tr>
-            <tr>
-                <td>Fecha de Ingreso: </td>
-                <td>
-                    @Html.TextBoxFor(m => m.fingreso)
-                    @Html.Label("Formato: AAAA-MM-DD")
-                    @Html.ValidationMessageFor(m => m.fingreso, "", new { @class = "text-danger" })
-                </td>
-            </tr>
-            <tr>
-                <td>Proveedor: </td>
-                <td>
-                    @Html.TextBoxFor(m => m.proveedor)
-                    @Html.ValidationMessageFor(m => m.proveedor, "", new { @class = "text-danger" })
-                </td>
-            </tr>
+            @Html.TextBoxFor(m => m.ffabricacion)
+            @Html.Label("Formato: AAAA-MM-DD")
+            @Html.ValidationMessageFor(m => m.ffabricacion, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de Vencimiento: </td>
+        <td>
 
-        </table>
+            @Html.TextBoxFor(m => m.fvencimiento)
+            @Html.Label("Formato: AAAA-MM-DD")
+            @Html.ValidationMessageFor(m => m.fvencimiento, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de Ingreso: </td>
+        <td>
+            @Html.TextBoxFor(m => m.fingreso)
+            @Html.Label("Formato: AAAA-MM-DD")
+            @Html.ValidationMessageFor(m => m.fingreso, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Proveedor: </td>
+        <td>
+            @Html.TextBoxFor(m => m.proveedor)
+            @Html.ValidationMessageFor(m => m.proveedor, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+
+</table>
 
         <input type="submit" value="Ingresar" />
         // <input type="submit" value="Agregar producto nuevo" onclick="location.href='@Url.Action("Load", "Entrada")'" />

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Inventapp.Models.Inventario
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
@@ -42,25 +43,52 @@
 <body>
 
 
-    <h1>Faltantes</h1>
+    <h1>Inventario de Productos</h1>
 
 
-    <table cellpadding="1" cellspacing="1">
+    <table class="table">
         <tr>
-            <th colspan="3" align="center">Producto</th>
+
+            <th>
+                @Html.Label("Producto")
+            </th>
+
+            <th>
+                @Html.Label("Cantidad")
+            </th>
+
         </tr>
-              
-        @foreach (var item in ViewBag.Items)
+
+        @foreach (var item in ViewBag.inventario)
         {
             <tr>
-                <td>@item</td>
-                <td>0</td>
+                <td>
+                    @item.productoN
+                </td>
+
+                @if (item.cantidad == 0)
+                {
+                    <td bgcolor="yellow">
+                        @item.cantidad
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @item.cantidad
+                    </td>
+                }
+
+
             </tr>
         }
 
     </table>
 
 
+    <div>
+        @Html.ActionLink("Regresar", "Index")
+    </div>
 
 </body>
 

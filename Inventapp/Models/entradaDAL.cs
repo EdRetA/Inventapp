@@ -70,22 +70,22 @@ namespace Inventapp.Models
                 return new List<string>(new string[] { "Error"});
             }
         }
-        public List<string> CargarFaltante()
+        public List<Inventario> CargarFaltante()
         {
             try
             {
                 DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("Select Producto from vFaltantes", con);
+                SqlCommand cmd = new SqlCommand("Select Producto,cantidad from vCantProductos", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
                 var da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 con.Close();
 
-                List<string> Lista = new List<string>();
+                List<Inventario> Lista = new List<Inventario>();
                 foreach (DataRow row in dt.Rows)
                 {
-                    Lista.Add(row["Producto"].ToString());
+                    Lista.Add(new Inventario() { productoN = row["Producto"].ToString(), cantidad = (int)row["cantidad"] });
                 }
 
                 return Lista;
@@ -97,7 +97,9 @@ namespace Inventapp.Models
                 {
                     con.Close();
                 }
-                return new List<string>(new string[] { "Error" });
+                List<Inventario> Lista = new List<Inventario>();
+                return Lista;
+                
             }
         }
     }
