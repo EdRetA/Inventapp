@@ -11,6 +11,7 @@ namespace Inventapp.Models
     public class entradaDAL
     {
         SqlConnection con = new SqlConnection("Data Source=10.60.0.169;Initial Catalog=dbInventario;User ID=desa;Password=Desa.123");
+        
         public string AgregarEntrada(entradaEnt entrada)
         {
             try
@@ -40,6 +41,31 @@ namespace Inventapp.Models
                 return (ex.Message.ToString());
             }
         }
+
+        public string AgregarProducto(entradaEnt entrada)
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("sp_insProducto", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@producto", entrada.productoN);
+                
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                return ("Producto agregado satisfactoriamente");
+            }
+            catch (Exception ex)
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                return (ex.Message.ToString());
+            }
+        }
+
         public List<string> BuscarProductos()
         {
             try
@@ -70,6 +96,7 @@ namespace Inventapp.Models
                 return new List<string>(new string[] { "Error"});
             }
         }
+
         public List<Inventario> CargarFaltante()
         {
             try

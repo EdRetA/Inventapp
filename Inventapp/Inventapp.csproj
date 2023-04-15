@@ -131,12 +131,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EntradaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\entradaDAL.cs" />
     <Compile Include="Models\entradaEnt.cs" />
     <Compile Include="Models\Inventario.cs" />
+    <Compile Include="Models\ProductoEnt.cs" />
+    <Compile Include="Models\ProductoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +181,7 @@
     <Content Include="Views\Entrada\Load.cshtml" />
     <Content Include="Views\Entrada\Index.cshtml" />
     <Content Include="Views\Entrada\Comprobar.cshtml" />
+    <Content Include="Views\Producto\ProductoNuevo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
