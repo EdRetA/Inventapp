@@ -10,6 +10,7 @@ namespace Inventapp.Models
     {
         
         public int producto { get; set; }
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Este campo es requerido")]
         public string productoN { get; set; }
 
@@ -29,7 +30,6 @@ namespace Inventapp.Models
         public string fingreso { get; set; }           
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Este campo es requerido")] 
-        public string proveedor { get; set; }
-        
+        public string proveedor { get; set; }        
     }
 }

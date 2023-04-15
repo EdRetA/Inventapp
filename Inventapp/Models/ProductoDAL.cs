@@ -18,7 +18,6 @@ namespace Inventapp.Models
                 SqlCommand cmd = new SqlCommand("sp_insProducto", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", entrada.productoN);
-
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();

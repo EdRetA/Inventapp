@@ -44,7 +44,6 @@
 
 
 
-    @*@using (Html.BeginForm("Agregar", "Entrada", FormMethod.Post))*@
     @using (Html.BeginForm("Agregar", "Entrada"))
     {
         if (ViewBag.Estado != null && ViewBag.Estado == 0)
@@ -144,9 +143,7 @@
         </table>
 
         <input type="submit" value="Ingresar" />
-        // <input type="submit" value="Agregar producto nuevo" onclick="location.href='@Url.Action("Load", "Entrada")'" />
 
-        //}
     }
 
 </body>

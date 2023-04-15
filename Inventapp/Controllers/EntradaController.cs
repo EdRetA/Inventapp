@@ -9,7 +9,7 @@ namespace Inventapp.Controllers
 {
     public class EntradaController : Controller
     {
-        // GET: Prueba
+        // GET:
         public ActionResult Index()
         {
             return View();
@@ -31,25 +31,19 @@ namespace Inventapp.Controllers
             return View();
         }
 
-        
-
+        // POST:
         [HttpPost]
         public ActionResult Agregar(entradaEnt entradaD)
 
         {
-
             if (ModelState.IsValid)
             {
-
                 DateTime vencimiento = Convert.ToDateTime(entradaD.fvencimiento);
                 if (vencimiento > DateTime.Today)
                 {
                     entradaDAL entdb = new entradaDAL();
-                    string resp = entdb.AgregarEntrada(entradaD);
-
-                    //ViewBag.Mensaje = resp;
-                    ViewBag.Estado = 1;
-                    //PopulateDropDownList();
+                    string resp = entdb.AgregarEntrada(entradaD);                                        
+                    ViewBag.Estado = 1;                    
                     return View("Index");
                 }
                 else
@@ -58,8 +52,6 @@ namespace Inventapp.Controllers
                     ViewBag.Estado = 2;
                     return View("Load");
                 }
-
-
             }
             else
             {
@@ -79,20 +71,9 @@ namespace Inventapp.Controllers
         private void CargaFaltantes()
         {
             entradaDAL entdb = new entradaDAL();
-            List<Inventario> items = entdb.CargarFaltante();
-          
-
-
-           
-          
-           ViewBag.inventario = items;
-                        
+            List<Inventario> items = entdb.CargarFaltante();                                         
+            ViewBag.inventario = items;                        
         }
-
-
-
-
-
 
         //public ActionResult Buscar()
         //{

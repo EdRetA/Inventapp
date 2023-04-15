@@ -15,8 +15,7 @@ namespace Inventapp.Models
         public string AgregarEntrada(entradaEnt entrada)
         {
             try
-            {
-                
+            {                
                 SqlCommand cmd = new SqlCommand("sp_insEntrada", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@producto", entrada.productoN);
@@ -26,7 +25,6 @@ namespace Inventapp.Models
                 cmd.Parameters.AddWithValue("@fingreso", entrada.fingreso);
                 cmd.Parameters.AddWithValue("@cantidad", entrada.cantidad);
                 cmd.Parameters.AddWithValue("@proveedor", entrada.proveedor);
-
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -46,11 +44,9 @@ namespace Inventapp.Models
         {
             try
             {
-
                 SqlCommand cmd = new SqlCommand("sp_insProducto", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@producto", entrada.productoN);
-                
+                cmd.Parameters.AddWithValue("@producto", entrada.productoN);                
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -77,13 +73,11 @@ namespace Inventapp.Models
                 var da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 con.Close();
-
                 List<string> Lista = new List<string>();
                 foreach (DataRow row in dt.Rows)
                 {
                     Lista.Add(row["nombre"].ToString());
                 }
-
                 return Lista;
             }
             catch (Exception ex)
@@ -114,7 +108,6 @@ namespace Inventapp.Models
                 {
                     Lista.Add(new Inventario() { productoN = row["Producto"].ToString(), cantidad = (int)row["cantidad"] });
                 }
-
                 return Lista;
             }
             catch (Exception ex)

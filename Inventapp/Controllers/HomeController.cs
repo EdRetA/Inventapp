@@ -8,6 +8,7 @@ namespace Inventapp.Controllers
 {
     public class HomeController : Controller
     {
+        // GET:
         public ActionResult Index()
         {
             return View();
@@ -15,14 +16,14 @@ namespace Inventapp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "INVENTAPP";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "CONTACTOS";
 
             return View();
         }
