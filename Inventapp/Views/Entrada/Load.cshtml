@@ -42,7 +42,7 @@
 </head>
 <body>
 
-
+    <h2>Ingresar Entrada de Producto</h2>
 
     @using (Html.BeginForm("Agregar", "Entrada"))
     {
@@ -111,7 +111,7 @@
                 <td>
 
                     @Html.TextBoxFor(m => m.ffabricacion)
-                    @Html.Label("Formato: AAAA-MM-DD")
+                    @Html.Label("Formato: DD-MM-AAAA")
                     @Html.ValidationMessageFor(m => m.ffabricacion, "", new { @class = "text-danger" })
                 </td>
             </tr>
@@ -120,7 +120,7 @@
                 <td>
 
                     @Html.TextBoxFor(m => m.fvencimiento)
-                    @Html.Label("Formato: AAAA-MM-DD")
+                    @Html.Label("Formato: DD-MM-AAAA")
                     @Html.ValidationMessageFor(m => m.fvencimiento, "", new { @class = "text-danger" })
                 </td>
             </tr>
@@ -128,7 +128,7 @@
                 <td>Fecha de Ingreso: </td>
                 <td>
                     @Html.TextBoxFor(m => m.fingreso)
-                    @Html.Label("Formato: AAAA-MM-DD")
+                    @Html.Label("Formato: DD-MM-AAAA")
                     @Html.ValidationMessageFor(m => m.fingreso, "", new { @class = "text-danger" })
                 </td>
             </tr>

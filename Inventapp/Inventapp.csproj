@@ -182,6 +182,9 @@
     <Content Include="Views\Entrada\Index.cshtml" />
     <Content Include="Views\Entrada\Comprobar.cshtml" />
     <Content Include="Views\Producto\ProductoNuevo.cshtml" />
+    <Content Include="Views\Entrada\ListEntradas.cshtml" />
+    <Content Include="Views\Entrada\BuscarEntrada.cshtml" />
+    <Content Include="Views\Entrada\Actualizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

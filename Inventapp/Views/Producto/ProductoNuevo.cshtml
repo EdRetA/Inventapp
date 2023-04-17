@@ -5,46 +5,91 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Producto Nuevo</h2>
+<!DOCTYPE html>
 
-@using (Html.BeginForm())
-{
-    if (ViewBag.Estado != null && ViewBag.Estado == 1)
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Entrada de producto</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+            table th {
+                background-color: #B8DBFD;
+                color: #333;
+                font-weight: bold;
+            }
+
+            table th, table td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            table, table table td {
+                border: 0px solid #ccc;
+            }
+
+        input[type=text], select {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Producto Nuevo</h2>
+
+    @using (Html.BeginForm())
     {
-        <script type="text/javascript">
+        if (ViewBag.Estado != null && ViewBag.Estado == 1)
+        {
+            <script type="text/javascript">
 
                 window.onload = function () {
                     alert("Producto ingresado correctamente");
                 };
-        </script>
-    }
+            </script>
+        }
 
 
 
 
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.Label("Nombre:", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.productoN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.productoN, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+        <table class="table">
+            <tr>
+                <th colspan="2" align="center">Entrada de producto</th>
+            </tr>
+            <tr>
+                <td>Nombre: </td>
+                <td>
+                    @Html.EditorFor(model => model.productoN)
+                    @Html.ValidationMessageFor(model => model.productoN)
+                </td>
+            </tr>
+        </table>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Ingresar" />
             </div>
         </div>
-    </div>
-}
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Load", "Entrada")
-</div>
+
+    <div>
+        @Html.ActionLink("Back to List", "Load", "Entrada")
+    </div>
+
+</body>
+
+</html>

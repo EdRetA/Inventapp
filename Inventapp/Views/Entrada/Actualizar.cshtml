@@ -1,0 +1,165 @@
+﻿@model Inventapp.Models.entradaEnt
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Actualizar producto</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+            table th {
+                background-color: #B8DBFD;
+                color: #333;
+                font-weight: bold;
+            }
+
+            table th, table td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            table, table table td {
+                border: 0px solid #ccc;
+            }
+
+        input[type=text], select {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    @using (Html.BeginForm("Actualizar", "Entrada"))
+    {
+        if (ViewBag.Estado != null && ViewBag.Estado == 0)
+        {
+            <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("Ingrese todos los datos");
+                };
+            </script>
+
+        }
+
+        if (ViewBag.Estado != null && ViewBag.Estado == 2)
+        {
+            <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("Producto vencido");
+                };
+            </script>
+
+        }
+
+        if (ViewBag.Estado != null && ViewBag.Estado == 5)
+        {
+            <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("Producto Actualizado correctamente");
+                };
+            </script>
+
+        }
+
+<table class="table">
+    <tr>
+        <th colspan="2" align="center">Actualizar producto</th>
+    </tr>
+
+    <tr hidden>
+        <td>Producto: </td>
+        <td>
+            @Html.TextBoxFor(m => m.producto)
+            <input type="button" value="Agregar producto nuevo" onclick="location.href='@Url.Action("ProductoNuevo","Producto")'" />
+        </td>
+    </tr>
+    <tr hidden>
+        <td>Producto: </td>
+        <td>
+            @Html.TextBoxFor(m => m.productoN)
+            
+        </td>
+    </tr>
+    <tr>
+        <td>Cantidad: </td>
+        <td>
+            @Html.TextBoxFor(m => m.cantidad)
+            @Html.ValidationMessageFor(m => m.cantidad, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Lote: </td>
+        <td>
+
+            @Html.TextBoxFor(m => m.lote)
+            @Html.ValidationMessageFor(m => m.lote, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de Fabricacion: </td>
+        <td>
+
+            @Html.TextBoxFor(m => m.ffabricacion)
+            @Html.Label("Formato: DD-MM-AAAA")
+            @Html.ValidationMessageFor(m => m.ffabricacion, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de Vencimiento: </td>
+        <td>
+
+            @Html.TextBoxFor(m => m.fvencimiento)
+            @Html.Label("Formato: DD-MM-AAAA")
+            @Html.ValidationMessageFor(m => m.fvencimiento, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha de Ingreso: </td>
+        <td>
+            @Html.TextBoxFor(m => m.fingreso)
+            @Html.Label("Formato: DD-MM-AAAA")
+            @Html.ValidationMessageFor(m => m.fingreso, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>Proveedor: </td>
+        <td>
+            @Html.TextBoxFor(m => m.proveedor)
+            @Html.ValidationMessageFor(m => m.proveedor, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <input type="submit" value="Modificar" />
+        </td>
+    </tr>
+</table>
+    }
+
+</body>
+
+</html>
+
+
+
+
+
+

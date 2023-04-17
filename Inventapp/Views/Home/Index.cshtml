@@ -8,7 +8,8 @@
 
     @using (Html.BeginForm("Load", "Entrada"))
     {
-        <input type="submit" value="Agregar producto nuevo" onclick="location.href='@Url.Action("Load", "Entrada")'" />
+        <input type="submit" value="Agregar nueva entrada" onclick="location.href='@Url.Action("Load", "Entrada")'" />
         <input type="button" value="Verificar productos" onclick="location.href='@Url.Action("Comprobar", "Entrada")'" />
+        <input type="button" value="Modificar entrada" onclick="location.href='@Url.Action("BuscarEntrada", "Entrada")'" />
     }
 </div>

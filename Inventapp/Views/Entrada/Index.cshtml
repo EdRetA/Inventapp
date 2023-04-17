@@ -7,7 +7,7 @@
 
     @using (Html.BeginForm("Load", "Entrada", FormMethod.Post))
     {
-        if (ViewBag.Estado != null && ViewBag.Estado==1)
+        if (ViewBag.Estado != null && ViewBag.Estado == 1)
         {
             <script type="text/javascript">
 
@@ -17,11 +17,22 @@
             </script>
 
         }
+        if (ViewBag.Estado != null && ViewBag.Estado == 2)
+        {
+            <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("Entrada actualizada correctamente");
+                };
+            </script>
+
+        }
         <p class="lead">Una aplicación para el control de inventarios.</p>
 
-        <input type="submit" value="Agregar producto nuevo" onclick="location.href='@Url.Action("Load", "Entrada")'"/>
-        <input type="button" value="Verificar productos" onclick="location.href='@Url.Action("Comprobar", "Entrada")'" />   
-}
+        <input type="submit" value="Agregar nueva entrada" onclick="location.href='@Url.Action("Load", "Entrada")'" />
+        <input type="button" value="Verificar productos" onclick="location.href='@Url.Action("Comprobar", "Entrada")'" />
+        <input type="button" value="Modificar entrada" onclick="location.href='@Url.Action("BuscarEntrada", "Entrada")'" />
+    }
 </div>
 
 
