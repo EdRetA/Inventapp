@@ -90,7 +90,7 @@
             </tr>
 
 
-            
+
             @foreach (var item in ViewBag.entradas)
             {
                 <tr>
@@ -106,7 +106,7 @@
                     <td>
                         @item.fingreso
                     </td>
-                    
+
                     <td>
                         <input type="button" value="Modificar" onclick="location.href='@Url.Action("Actualizar", "Entrada",item)'" />
                     </td>
@@ -115,6 +115,12 @@
 
         </table>
     }
+
+    <p></p>
+    <div>
+        @Html.ActionLink("Regresar", "Index", "Entrada")
+    </div>
+
 </body>
 
 </html>
