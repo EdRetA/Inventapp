@@ -36,7 +36,6 @@ namespace Inventapp.Controllers
 
         {
             CargarEntrada();
-            //   Actualizar2(entradaD);
             return View(ViewBag.Items[0]);
             
         }

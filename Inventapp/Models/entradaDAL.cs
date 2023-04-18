@@ -63,37 +63,7 @@ namespace Inventapp.Models
                 return (ex.Message.ToString());
             }
         }
-
-        //public List<entradaEnt> BuscarEntrada(entradaEnt entradaD)        
-        //{
-        //    try
-        //    {
-        //        DataTable dt = new DataTable();
-        //        SqlCommand cmd = new SqlCommand("Select id,nombre,cantidad,ingreso from vEntradas Where lote=@lote", con);
-        //        cmd.CommandType = CommandType.Text;
-        //        cmd.Parameters.AddWithValue("@lote", entradaD.lote);
-        //        con.Open();
-        //        var da = new SqlDataAdapter(cmd);
-        //        da.Fill(dt);
-        //        con.Close();
-        //        List<entradaEnt> ListaEntradas = new List<entradaEnt>();
-        //        foreach (DataRow row in dt.Rows)
-        //        {
-        //            ListaEntradas.Add(new entradaEnt() { producto = (int)row["id"], productoN = row["nombre"].ToString(), cantidad = (int)row["cantidad"], fingreso = row["ingreso"].ToString(), lote = entradaD.lote });
-        //        }
-        //        return ListaEntradas;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DataTable dt = new DataTable();
-        //        if (con.State == ConnectionState.Open)
-        //        {
-        //            con.Close();
-        //        }
-        //        List<entradaEnt> ListaEntradas = new List<entradaEnt>();
-        //        return ListaEntradas;
-        //    }
-        //}
+                
         public List<entradaEnt> BuscarEntrada(entradaEnt entradaD)
         {
             try
