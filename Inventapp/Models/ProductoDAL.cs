@@ -9,7 +9,10 @@ namespace Inventapp.Models
 {
     public class ProductoDAL
     {
-        SqlConnection con = new SqlConnection("Data Source=10.60.0.169;Initial Catalog=dbInventario;User ID=desa;Password=Desa.123");
+        static string conectionString = System.Configuration.ConfigurationManager.ConnectionStrings["InventAPPCS"].ConnectionString;
+
+        SqlConnection con = new SqlConnection(conectionString);
+        
 
         public string AgregarProducto(ProductoEnt entrada)
         {
